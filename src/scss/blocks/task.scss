@@ -1,0 +1,57 @@
+@use '../mixins/pseudo.scss' as *;
+
+.todo-list {
+  position: relative;
+  top: -2rem;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 2rem;
+}
+
+.task-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task {
+  padding: 1rem 0;
+
+  &__input {
+    display: none;
+
+    &:checked + .task__label::before {
+      background-image: linear-gradient(
+        120deg,
+        hsl(192, 100%, 67%),
+        hsl(280, 87%, 65%)
+      );
+      border: none;
+    }
+
+    &:checked + .task__label::after {
+      display: block;
+    }
+  }
+
+  &__label {
+    position: relative;
+    left: 1rem;
+
+    &::before {
+      @include pseudo(1.25rem, 1.25rem);
+      left: -2rem;
+      border: 1px solid gray;
+      border-radius: 50%;
+    }
+
+    &::after {
+      @include pseudo(1.25rem, 1.25rem);
+      display: none;
+      top: 0.4rem;
+      left: -1.7rem;
+      background-image: url(../assets/images/icon-check.svg);
+      background-repeat: no-repeat;
+    }
+  }
+}

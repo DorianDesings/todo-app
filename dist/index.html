@@ -17,15 +17,22 @@
 
   <body>
     <header class="header">
-      <nav>
-        <ul class="menu">
-          <li class="menu__item">
-            <a href="#" class="menu__link">Item de ejemplo</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="header__top">
+        <img class="logo" src="assets/images/logo.svg" alt="logo" />
+        <img
+          class="toggle-icon"
+          src="assets/images/icon-moon.svg"
+          alt="Toggle icon"
+        />
+      </div>
+      <form id="form" class="form">
+        <label class="form__label" for="todo-input"></label>
+        <input class="form__input" type="text" name="todo" id="todo-input" />
+      </form>
     </header>
-    <main class="main"></main>
-    <footer class="footer"></footer>
+    <main class="main">
+      <div id="todo-list" class="todo-list"></div>
+    </main>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
