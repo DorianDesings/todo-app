@@ -361,7 +361,7 @@ a {
 
 .header {
   height: 200px;
-  background-image: url(/dist/assets/images/bg-mobile-light.jpg);
+  background-image: url(../assets/images/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 1px 1.5rem 0;
