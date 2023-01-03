@@ -359,18 +359,35 @@ a {
   color: inherit;
 }
 
+body {
+  user-select: none;
+  font-family: sans-serif;
+  background-color: #fafafa;
+}
+
 .header {
-  height: 200px;
+  height: 400px;
   background-image: url(../assets/images/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1px 1.5rem 0;
+  padding-top: 150px;
+}
+@media screen and (min-width: 1024px) {
+  .header {
+    height: 400px;
+    background-image: url(../assets/images/bg-desktop-light.jpg);
+  }
 }
 .header__top {
   display: flex;
   justify-content: space-between;
-  width: 100%;
   margin: 2rem auto;
+  width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .header__top {
+    width: 540px;
+  }
 }
 
 .logo {
@@ -382,8 +399,9 @@ a {
 }
 
 .main {
-  padding: 0 1.5rem;
-  background-color: rgb(185, 185, 185);
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form {
@@ -392,6 +410,13 @@ a {
   align-items: center;
   width: 100%;
   height: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 1024px) {
+  .form {
+    width: 540px;
+  }
 }
 .form__label {
   position: absolute;
@@ -416,17 +441,22 @@ a {
   top: -2rem;
   width: 100%;
   background-color: #fff;
-  padding: 0 2rem;
+  border-radius: 0.5rem;
+  width: 540px;
 }
 
 .task-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #979797;
 }
 
 .task {
-  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  height: 65px;
+  padding: 0 2rem;
 }
 .task__input {
   display: none;
@@ -461,4 +491,29 @@ a {
   left: -1.7rem;
   background-image: url(../assets/images/icon-check.svg);
   background-repeat: no-repeat;
+}
+.task__delete {
+  position: absolute;
+  right: 2rem;
+}
+
+.filter-tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 65px;
+  color: #9495a5;
+}
+.filter-tasks__filters {
+  width: 165px;
+  display: flex;
+  justify-content: space-between;
+}
+.filter-tasks__filter {
+  font-weight: bold;
+  cursor: pointer;
+}
+.filter-tasks__filter--active {
+  color: #3a7cfd;
 }

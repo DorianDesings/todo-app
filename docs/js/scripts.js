@@ -1,7 +1,28 @@
 const formElement = document.getElementById('form');
 const todoListElement = document.getElementById('todo-list');
+const itemsLeftElement = document.getElementById('items-left');
+const filtersElement = document.getElementById('filters');
 
 const generateTimeStamp = () => Date.now();
+
+const countItemsLeft = () => {
+  const allTasks = [...todoListElement.children].filter(task =>
+    task.classList.contains('task-container')
+  );
+
+  console.log(allTasks);
+  if (allTasks.length === 0) {
+    itemsLeftElement.textContent = 'No Items Left';
+  } else if (allTasks.length === 1) {
+    itemsLeftElement.textContent = `${
+      todoListElement.children.length - 1
+    } Item Left`;
+  } else {
+    itemsLeftElement.textContent = `${
+      todoListElement.children.length - 1
+    } Items Left`;
+  }
+};
 
 const addTask = task => {
   const timeStamp = generateTimeStamp();
@@ -37,17 +58,18 @@ const addTask = task => {
 const deleteTask = id => {
   const element = document.getElementById(id).parentElement.parentElement;
   element.remove();
+  countItemsLeft();
 };
 
 todoListElement.addEventListener('click', ev => {
   if (!ev.target.classList.contains('task__delete')) return;
-
   const idTask = ev.target.previousElementSibling.children[0].id;
   deleteTask(idTask);
 });
 
 formElement.addEventListener('submit', e => {
   e.preventDefault();
-  todoListElement.append(addTask(e.target.todo.value));
+  todoListElement.prepend(addTask(e.target.todo.value));
   e.target.reset();
+  countItemsLeft();
 });

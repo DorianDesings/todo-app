@@ -31,7 +31,19 @@
       </form>
     </header>
     <main class="main">
-      <div id="todo-list" class="todo-list"></div>
+      <div id="todo-list" class="todo-list">
+        <div class="filter-tasks">
+          <span id="items-left" class="filter-tasks__item">No Items Left</span>
+          <div id="filters" class="filter-tasks__filters">
+            <span class="filter-tasks__filter filter-tasks__filter--active"
+              >All</span
+            >
+            <span class="filter-tasks__filter">Active</span>
+            <span class="filter-tasks__filter">Completed</span>
+          </div>
+          <span class="filter-tasks__item">Clear Completed</span>
+        </div>
+      </div>
     </main>
     <script src="js/scripts.js"></script>
   </body>

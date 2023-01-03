@@ -5,17 +5,22 @@
   top: -2rem;
   width: 100%;
   background-color: #fff;
-  padding: 0 2rem;
+  border-radius: 0.5rem;
+  width: 540px;
 }
 
 .task-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid #979797;
 }
 
 .task {
-  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  height: 65px;
+  padding: 0 2rem;
 
   &__input {
     display: none;
@@ -52,6 +57,34 @@
       left: -1.7rem;
       background-image: url(../assets/images/icon-check.svg);
       background-repeat: no-repeat;
+    }
+  }
+
+  &__delete {
+    position: absolute;
+    right: 2rem;
+  }
+}
+
+.filter-tasks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 65px;
+  color: #9495a5;
+
+  &__filters {
+    width: 165px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__filter {
+    font-weight: bold;
+    cursor: pointer;
+    &--active {
+      color: #3a7cfd;
     }
   }
 }

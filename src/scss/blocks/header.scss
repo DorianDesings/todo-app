@@ -1,15 +1,26 @@
+@use '../mixins/responsive.scss' as *;
+
 .header {
-  height: 200px;
+  height: 400px;
   background-image: url(../assets/images/bg-mobile-light.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 1px 1.5rem 0;
+  padding-top: 150px;
+
+  @include responsive(laptop) {
+    height: 400px;
+    background-image: url(../assets/images/bg-desktop-light.jpg);
+  }
 
   &__top {
     display: flex;
     justify-content: space-between;
-    width: 100%;
     margin: 2rem auto;
+    width: 100%;
+
+    @include responsive(laptop) {
+      width: 540px;
+    }
   }
 }
 
